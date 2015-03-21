@@ -20,10 +20,10 @@ static const uint16_t PROGMEM fn_actions[] = {
 	[4]  = ACTION_LAYER_MOMENTARY(1),
 #define KC_FTL2 KC_FN5 // FN5  - Toggle layer 2
 	[5]  = ACTION_LAYER_MOMENTARY(2),
-#define KC_FCL0 KC_FN3 // FN3  - Change to layer 0 (reset)
-	[3]  = ACTION_LAYER_CLEAR(ON_RELEASE),
-#define KC_FCL1 KC_FN4 // FN4  - Change layer 1
-	[4]  = ACTION_LAYER_ON(1, ON_RELEASE),
+#define KC_FCL0 KC_FN6 // FN6  - Change to layer 0 (reset)
+	[6]  = ACTION_LAYER_CLEAR(ON_RELEASE),
+#define KC_FCL1 KC_FN7 // FN7  - Change layer 1
+	[7]  = ACTION_LAYER_ON(1, ON_RELEASE),
 };
 
 void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
