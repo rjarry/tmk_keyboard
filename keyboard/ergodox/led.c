@@ -17,8 +17,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include <stdint.h>
 #include <avr/io.h>
+#include "action_layer.h"
 #include "print.h"
 #include "debug.h"
+#include "util.h"
 #include "led.h"
 #include "ergodox.h"
 
@@ -40,15 +42,15 @@ void led_set(uint8_t usb_led)
     }
 #endif
 
-    // middle - CapsLock
-    if (usb_led & (1<<USB_LED_CAPS_LOCK)) {
+    // middle - Compose Key
+    if (usb_led & (1<<USB_LED_COMPOSE)) {
         ergodox_right_led_2_on();
     } else {
         ergodox_right_led_2_off();
     }
 
-    // bottommost - ScrollLock
-    if (usb_led & (1<<USB_LED_SCROLL_LOCK)) {
+    // bottommost - Layer 1
+    if (biton32(layer_state) == 1) {
         ergodox_right_led_3_on();
     } else {
         ergodox_right_led_3_off();
