@@ -16,24 +16,16 @@ static const uint16_t PROGMEM fn_actions[] = {
 #define KC_FRSH KC_FN2 // FN2  - One-shot tap rshift
     [2]  = ACTION_MODS_ONESHOT(MOD_RSFT),
 
-#define KC_FTL0 KC_FN3 // FN3  - Toggle layer 0
-    [3]  = ACTION_LAYER_MOMENTARY(0),
-#define KC_FTL1 KC_FN4 // FN4  - Toggle layer 1
-    [4]  = ACTION_LAYER_MOMENTARY(1),
-#define KC_FTL2 KC_FN5 // FN5  - Toggle layer 2
-    [5]  = ACTION_LAYER_MOMENTARY(2),
-#define KC_FCL0 KC_FN6 // FN6  - Change to layer 0 (reset)
-    [6]  = ACTION_LAYER_CLEAR(ON_BOTH),
-#define KC_FCL1 KC_FN7 // FN7  - Change layer 1
-    [7]  = ACTION_LAYER_ON(1, ON_BOTH),
+#define KC_FML1 KC_FN3 // FN3  - Momentary layer 1
+    [3]  = ACTION_LAYER_MOMENTARY(1),
+#define KC_FML2 KC_FN4 // FN4  - Momentary layer 2
+    [4]  = ACTION_LAYER_MOMENTARY(2),
+#define KC_FTL1 KC_FN5 // FN5  - Toggle layer 1 on/off
+    [5]  = ACTION_LAYER_TOGGLE(1),
 };
 
 void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
 {
-    // print("action_function called\n");
-    // print("id  = "); phex(id); print("\n");
-    // print("opt = "); phex(opt); print("\n");
-
     switch (id) {
     case TEENSY_KEY:
         clear_keyboard();
@@ -67,7 +59,29 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                       |LShf|BkSp|----|  |----|RShf|Spac|
  *                       |    |    |LGui|  |Paus|    |    |
  *                       `--------------'  `--------------'
- *
+ */
+    KEYMAP(
+        // left hand
+        GRV, 1,   2,   3,   4,   5,   LBRC,
+        NUBS,Q,   W,   E,   R,   T,   ESC,
+        LALT,A,   S,   D,   F,   G,
+        LCTL,Z,   X,   C,   V,   B,   TAB,
+        RGUI,HOME,PGDN,PGUP,END,
+                                 FML1,FTL1,
+                                      INS,
+                            FLSH,BSPC,LGUI,
+        // right hand
+        RBRC,6,   7,   8,   9,   0,   EQL,
+        BSPC,Y,   U,   I,   O,   P,   MINS,
+             H,   J,   K,   L,   SCLN,QUOT,
+        ENT, K,   L,   COMM,DOT, SLSH,NUHS,
+                  LEFT,UP,  DOWN,RGHT,DEL,
+        MUTE,FML1,
+        SLCK,
+        PAUS,FRSH,SPC
+    ),
+
+/*
  * Layer 1: Function keys + Numpad
  *
  * ,------------------------------------.  ,------------------------------------.
@@ -81,46 +95,15 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `------+----+----+----+----+---------'  `---------+----+----+----+----+------'
  *   | ~L2|MPrv|Vol-|Vol+|MNxt|                      |    |    |    |    |    |
  *   `------------------------'                      `------------------------'
- *                            ,---------.  ,---------.
- *                            | ~L0| =L0|  |Mute| ~L0|
- *                       ,----|----|----|  |----+----+----.
- *                       |    |    |    |  |    |    |    |
- *                       |    |    |----|  |----|    |    |
- *                       |    |    |    |  |    |    |    |
- *                       `--------------'  `--------------'
- *
  */
-    // Layer0
-    KEYMAP(
-        // left hand
-        GRV, 1,   2,   3,   4,   5,   LBRC,
-        NUBS,Q,   W,   E,   R,   T,   ESC,
-        LALT,A,   S,   D,   F,   G,
-        LCTL,Z,   X,   C,   V,   B,   TAB,
-        RGUI,HOME,PGDN,PGUP,END,
-                                 FTL1,FCL1,
-                                      INS,
-                            FLSH,BSPC,LGUI,
-        // right hand
-        RBRC,6,   7,   8,   9,   0,   EQL,
-        BSPC,Y,   U,   I,   O,   P,   MINS,
-             H,   J,   K,   L,   SCLN,QUOT,
-        ENT, K,   L,   COMM,DOT, SLSH,NUHS,
-                  LEFT,UP,  DOWN,RGHT,DEL,
-        MUTE,FTL1,
-        SLCK,
-        PAUS,FRSH,SPC
-    ),
-
-    // Layer1
     KEYMAP(
         // left hand
         NO,  F1,  F2,  F3,  F4,  F5,  NO,
         NO,  F6,  F7,  F8,  F9,  F10, TRNS,
         TRNS,F11, F12, F13, F14, F15,
         TRNS,NO,  NO,  NO,  NO,  NO,  TRNS,
-        FTL2,MPRV,VOLD,VOLU,MNXT,
-                                 FTL0,FCL0,
+        FML2,MPRV,VOLD,VOLU,MNXT,
+                                 TRNS,TRNS,
                                       TRNS,
                             TRNS,TRNS,TRNS,
         // right hand
@@ -129,7 +112,7 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
              NO,  P1,  P2,  P3,  PAST,NO,
         TRNS,NO,  P0,  PCMM,PDOT,PSLS,NO,
                   TRNS,TRNS,TRNS,TRNS,TRNS,
-        TRNS,FTL0,
+        TRNS,TRNS,
         TRNS,
         TRNS,TRNS,TRNS
     ),
@@ -141,7 +124,7 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         NO,  NO,  NO,  NO,  NO,  NO,  NO,
         NO,  NO,  NO,  NO,  NO,  NO,
         NO,  NO,  NO,  NO,  NO,  NO,  NO,
-        NO,  NO,  NO,  NO,  NO,
+        TRNS,NO,  NO,  NO,  NO,
                                  NO,  NO,
                                       NO,
                             NO,  NO,  NO,
