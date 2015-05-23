@@ -40,20 +40,20 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,------------------------------------.  ,------------------------------------.
  * | Esc  |  1 |  2 |  3 |  4 |  5 |  [ |  |  ] |  6 |  7 |  8 |  9 |  0 |   =  |
  * |------+----+----+----+----+---------|  |----+----+----+----+----+----+------|
- * | Tab  |  Q |  W |  E |  R |  T | Ins|  |PgUp|  Y |  U |  I |  O |  P |   -  |
+ * | Tab  |  Q |  W |  E |  R |  T | Ins|  |PgUp|  Y |  U |  I |  O |  P |   \  |
  * |------+----+----+----+----+----|    |  |    |----+----+----+----+----+------|
  * |AltGr |  A |  S |  D |  F |  G |----|  |----|  H |  J |  K |  L |  ; |   '  |
  * |------+----+----+----+----+----|Slck|  |PgDn|----+----+----+----+----+------|
  * |LShift|  Z |  X |  C |  V |  B |    |  |    |  N |  M |  , |  . |  / |RShift|
  * `------+----+----+----+----+---------'  `---------+----+----+----+----+------'
- *   |LCtl|LAlt|  \ |  ` |RGUI|                      |Left| Up |Down|Rght| End|
+ *   |LCtl|LAlt|  - |  ` |LGUI|                      |Left| Up |Down|Rght| End|
  *   `------------------------'                      `------------------------'
  *                            ,---------.  ,---------.
  *                            | ~L1| +L1|  | Del| ~L1|
  *                       ,----+----+----|  |----+----+----.
  *                       |    |    |Paus|  |Mute|    |    |
  *                       |Spac|Entr|----|  |----|BkSp|Spac|
- *                       |    |    |LGui|  |Home|    |    |
+ *                       |    |    |RGUI|  |Home|    |    |
  *                       `--------------'  `--------------'
  */
     KEYMAP(
@@ -62,13 +62,13 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         TAB, Q,   W,   E,   R,   T,   INS,
         RALT,A,   S,   D,   F,   G,
         LSFT,Z,   X,   C,   V,   B,   SLCK,
-        LCTL,LALT,BSLS,GRV, RGUI,
+        LCTL,LALT,MINS,GRV, LGUI,
                                  FML1,FTL1,
                                       PAUS,
-                            SPC, ENT, LGUI,
+                            SPC, ENT, RGUI,
         // right hand
         RBRC,6,   7,   8,   9,   0,   EQL,
-        PGUP,Y,   U,   I,   O,   P,   MINS,
+        PGUP,Y,   U,   I,   O,   P,   BSLS,
              H,   J,   K,   L,   SCLN,QUOT,
         PGDN,N,   M,   COMM,DOT, SLSH,RSFT,
                   LEFT,UP,  DOWN,RGHT,END,
