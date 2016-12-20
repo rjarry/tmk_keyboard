@@ -1,0 +1,98 @@
+// vim: ft=xkb
+//
+// AZERTY for ergodox Keyboard Layout symbols for xkb on X.Org Server 7.x
+// 2016-12-20, R. Jarry
+//
+// ┌─────┐
+// │ 2 4 │   2 = Shift,  4 = Fn
+// │ 1 3 │   1 = Normal, 3 = AltGr
+// └─────┘
+// ┌───────┬─────┬─────┬─────┬─────┬─────┬─────┐  ┌─────┬─────┬─────┬─────┬─────┬─────┬───────┐
+// │       │ 1 F1│ 2 F2│ 3 F3│ 4 F4│ 5 F5│ \   │  │ °   │ 6   │ 7 7 │ 8 8 │ 9 9 │ 0 - │ +  *  │
+// │Esc    │ &   │ é ~ │ " # │ ' { │ ( [ │ *   │  │ ) ] │ - | │ è ` │ _ \ │ ç ^ │ à @ │ =  }  │
+// ├───────┼─────┼─────┼─────┼─────┼─────┼─────┤  ├─────┼─────┼─────┼─────┼─────┼─────┼───────┤
+// │       │ A F6│ Z F7│ E F8│ R F9│ T F10     │  │ Vol+│ Y   │ U 4 │ I 5 │ O 6 │ P + │ "  /  │
+// │Tab    │ a   │ z   │ e € │ r   │ t   │     │  │     │ y   │ u   │ i   │ o   │ p   │ ^     │
+// ├───────┼─────┼─────┼─────┼─────┼─────┤Ins. │  │PgUp ├─────┼─────┼─────┼─────┼─────┼───────┤
+// │       │ Q F11 S F12 D F13 F F14 G F15─────┤  ├─────┤ H   │ J 1 │ K 2 │ L 3 │ M = │ % Enter
+// │AltGr  │ q   │ s   │ d   │ f   │ g   │     │  │ Vol-│ h   │ j   │ k   │ l   │ m   │ ù     │
+// ├───────┼─────┼─────┼─────┼─────┼─────┤     │  │     ├─────┼─────┼─────┼─────┼─────┼───────┤
+// │       │ W   │ X   │ C   │ V   │ B   │     │  │     │ N   │ ? 0 │ . , │ / . │ |   │       │
+// │Shift  │ w   │ x   │ c   │ v   │ b   │ScLck│  │PgDn │ n   │ ,   │ ;   │ :   │ !   │Shift  │
+// └─┬─────┼─────┼─────┼─────┼─────┼─────┴─────┘  └─────┴─────┼─────┼─────┼─────┼─────┼─────┬─┘
+//   │     │     │ >   │ @   │ `   │┌─────┬─────┐┌─────┬─────┐│     │     │     │     │     │
+//   │Ctrl │Alt  │ <   │ @   │ $   ││     │     ││ Prev│ Next││Left │Up   │Down │Right│End  │
+//   └─────┴─────┴─────┴─────┴─────┘│Fn   │Fn   ││Del. │Fn   │└─────┴─────┴─────┴─────┴─────┘
+//                            ┌─────┼─────┼─────┤├─────┼─────┼─────┐
+//                            │     │     │     ││     │     │     │
+//                            │     │     │Pause││Mute │     │     │
+//                            │     │     ├─────┤├─────┤     │     │
+//                            │     │     │     ││     │     │     │
+//                            │     │Enter│Mod4 ││Home │BkSpc│     │
+//                            └─────┴─────┴─────┘└─────┴─────┴─────┘
+
+default partial alphanumeric_keys
+xkb_symbols "azerdox" {
+
+	name[Group1]= "AZERTY with modifications for ergodox";
+
+	include "us(basic)"
+
+	// <CODE>      Normal       Shift        AltGr            AltGr+Shift
+	key <TLDE> { [ at,          at,          at,              at         ] }; // bottom left-middle
+	key <AE01> { [ ampersand,   1,           onesuperior,     exclamdown ] };
+	key <AE02> { [ eacute,      2,           asciitilde,      oneeighth  ] };
+	key <AE03> { [ quotedbl,    3,           numbersign,      sterling   ] };
+	key <AE04> { [ apostrophe,  4,           braceleft,       dollar     ] };
+	key <AE05> { [ parenleft,   5,           bracketleft,     threeeighths] };
+	key <AE06> { [ minus,       6,           bar,             fiveeighths] };
+	key <AE07> { [ egrave,      7,           grave,           seveneighths] };
+	key <AE08> { [ underscore,  8,           backslash,       trademark  ] };
+	key <AE09> { [ ccedilla,    9,           asciicircum,     plusminus  ] };
+	key <AE10> { [ agrave,      0,           at,              degree     ] };
+	key <AE11> { [ parenright,  degree,      bracketright,    questiondown] }; // top middle-left
+	key <AE12> { [ equal,       plus,        braceright,      plus       ] };
+
+	// <CODE>      Normal       Shift        AltGr            AltGr+Shift
+	key <AD01> { [ a,           A,           agrave,          Agrave     ] };
+	key <AD02> { [ z,           Z,           z,               Z          ] };
+	key <AD03> { [ e,           E,           EuroSign,        cent       ] };
+	key <AD04> { [ r,           R,           r,               R          ] };
+	key <AD05> { [ t,           T,           t,               T          ] };
+	key <AD06> { [ y,           Y,           y,               Y          ] };
+	key <AD07> { [ u,           U,           u,               U          ] };
+	key <AD08> { [ i,           I,           i,               I,         ] };
+	key <AD09> { [ o,           O,           o,               O          ] };
+	key <AD10> { [ p,           P,           p,               P          ] };
+	key <AD11> { [ dead_circumflex,dead_diaeresis,dead_diaeresis,dead_abovering ] };
+	key <AD12> { [ dollar,      grave,       dollar,          backslash  ] }; // top middle-right
+
+	// <CODE>      Normal       Shift        AltGr            AltGr+Shift
+	key <AC01> { [ a,           A,           agrave,          Agrave     ] };
+	key <AC02> { [ s,           S,           s,               S          ] };
+	key <AC03> { [ h,           H,           h,               H          ] };
+	key <AC04> { [ t,           T,           t,               T          ] };
+	key <AC05> { [ g,           G,           g,               G          ] };
+	key <AC06> { [ y,           Y,           y,               Y          ] };
+	key <AC07> { [ n,           N,           ntilde,          Ntilde     ] };
+	key <AC08> { [ e,           E,           eacute,          Eacute     ] };
+	key <AC09> { [ o,           O,           ocircumflex,     Ocircumflex] };
+	key <AC10> { [ i,           I,           icircumflex,     Icircumflex] };
+	key <AC11> { [ asterisk,    percent,     asterisk,        percent    ] };
+
+	// <CODE>      Normal       Shift        AltGr            AltGr+Shift
+	key <AB01> { [ z,           Z,           z,               Z          ] };
+	key <AB02> { [ x,           X,           x,               X          ] };
+	key <AB03> { [ m,           M,           m,               M          ] };
+	key <AB04> { [ c,           C,           ccedilla,        Ccedilla   ] };
+	key <AB05> { [ v,           V,           v,               V          ] };
+	key <AB06> { [ k,           K,           k,               K          ] };
+	key <AB07> { [ l,           L,           l,               L          ] };
+	key <AB08> { [ comma,       question,    comma,           question   ] };
+	key <AB09> { [ semicolon,   period,      semicolon,       period     ] };
+	key <AB10> { [ colon,       slash,       colon,           slash      ] };
+	// top right
+	key <BKSL> { [ backslash,   bar,         backslash,       bar        ] };
+
+	include "level3(ralt_switch)"
+};

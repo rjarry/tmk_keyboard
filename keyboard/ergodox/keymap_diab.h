@@ -38,15 +38,15 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * Default Layer: QWERTY
  *
  * ,------------------------------------.  ,------------------------------------.
- * | Esc  |  1 |  2 |  3 |  4 |  5 |  [ |  |  ] |  6 |  7 |  8 |  9 |  0 |   =  |
+ * | Esc  |  1 |  2 |  3 |  4 |  5 |  - |  |  ] |  6 |  7 |  8 |  9 |  0 |   =  |
  * |------+----+----+----+----+---------|  |----+----+----+----+----+----+------|
- * | Tab  |  Q |  W |  E |  R |  T | Ins|  |PgUp|  Y |  U |  I |  O |  P |   \  |
+ * | Tab  |  Q |  W |  E |  R |  T | Ins|  |PgUp|  Y |  U |  I |  O |  P |   [  |
  * |------+----+----+----+----+----|    |  |    |----+----+----+----+----+------|
  * |AltGr |  A |  S |  D |  F |  G |----|  |----|  H |  J |  K |  L |  ; |   '  |
  * |------+----+----+----+----+----|Slck|  |PgDn|----+----+----+----+----+------|
  * |LShift|  Z |  X |  C |  V |  B |    |  |    |  N |  M |  , |  . |  / |RShift|
  * `------+----+----+----+----+---------'  `---------+----+----+----+----+------'
- *   |LCtl|LAlt|  - |  ` |LGUI|                      |Left| Up |Down|Rght| End|
+ *   |LCtl|LAlt|  \ |  ` |  # |                      |Left| Up |Down|Rght| End|
  *   `------------------------'                      `------------------------'
  *                            ,---------.  ,---------.
  *                            | ~L1| +L1|  | Del| ~L1|
@@ -58,17 +58,17 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
     KEYMAP(
         // left hand
-        ESC, 1,   2,   3,   4,   5,   LBRC,
+        ESC, 1,   2,   3,   4,   5,   NUHS,
         TAB, Q,   W,   E,   R,   T,   INS,
         RALT,A,   S,   D,   F,   G,
         LSFT,Z,   X,   C,   V,   B,   SLCK,
-        LCTL,LALT,MINS,GRV, LGUI,
+        LCTL,LALT,NUBS,GRV, RBRC,
                                  FML1,FTL1,
                                       PAUS,
                             SPC, ENT, RGUI,
         // right hand
-        RBRC,6,   7,   8,   9,   0,   EQL,
-        PGUP,Y,   U,   I,   O,   P,   BSLS,
+        MINS,6,   7,   8,   9,   0,   EQL,
+        PGUP,Y,   U,   I,   O,   P,   LBRC,
              H,   J,   K,   L,   SCLN,QUOT,
         PGDN,N,   M,   COMM,DOT, SLSH,RSFT,
                   LEFT,UP,  DOWN,RGHT,END,
